@@ -59,8 +59,9 @@ func (c *Config) NextToken() (*string, error){
 }
 
 func NewConfig(region string, group string, stream string) *Config {
+  fmt.Println(region)
   sess := session.Must(session.NewSession(&aws.Config{
-    Region: aws.String("us-west-2"),
+    Region: aws.String(region),
   }))
 
   svc := cloudwatchlogs.New(sess)
